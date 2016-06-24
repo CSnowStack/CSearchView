@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CSearchView">
+        <attr name="csv_hint" format="string"/>
+        <attr name="csv_textColor" format="color"/>
+        <attr name="csv_hintColor" format="color"/>
+        <attr name="csv_lineColor" format="color"/>
+        <attr name="csv_backgroundColor" format="color"/>
+        <attr name="csv_moveDuration" format="float"/>
+        <attr name="csv_searchDrawable" format="reference"/>
+        <attr name="csv_cancelDrawable" format="reference"/>
+
+    </declare-styleable>
+</resources>
