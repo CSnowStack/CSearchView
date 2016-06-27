@@ -31,7 +31,7 @@ public class CSearchView extends RelativeLayout {
     private int hintColor, textColor, lineColor, bgColor;
     private boolean openWtihShowSoftInput;
     private InputMethodManager imm;
-    private OnSearchViewManagerListener mOnSearchViewManagerListener;
+    private OnTextChangeListener mOnTextChangeListener;
     private OnStatusChangeListener mOnStatusChangeListener;
     public CSearchView(Context context) {
         this(context, null);
@@ -146,24 +146,6 @@ public class CSearchView extends RelativeLayout {
             }
         });
 
-        edtSearch.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(null!=mOnSearchViewManagerListener){
-                    mOnSearchViewManagerListener.onTextChangeListener(s);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
     }
 
@@ -237,7 +219,7 @@ public class CSearchView extends RelativeLayout {
         edtSearch.setLineColor(color);
     }
 
-    public CharSequence getCharSequence(){
+    public CharSequence getText(){
        return edtSearch.getText();
     }
 
@@ -249,16 +231,41 @@ public class CSearchView extends RelativeLayout {
         edtSearch = (CEditText) findViewById(R.id.edt_search);
     }
 
+    public void addTextWatcher(TextWatcher textWatcher){
+        edtSearch.addTextChangedListener(textWatcher);
+    }
 
-    public void setOnSearchViewManagerListener(OnSearchViewManagerListener onSearchViewManagerListener) {
-        mOnSearchViewManagerListener = onSearchViewManagerListener;
+    public void removeTextWatch(TextWatcher textWatcher){
+        edtSearch.removeTextChangedListener(textWatcher);
+    }
+
+    public void setOnTextChangeListener(OnTextChangeListener onTextChangeListener) {
+        mOnTextChangeListener = onTextChangeListener;
+        if(mOnStatusChangeListener!=null){
+            edtSearch.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        mOnTextChangeListener.onTextChangeListener(s);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
+        }
     }
 
     public void setOnStatusChangeListener(OnStatusChangeListener onStatusChangeListener) {
         mOnStatusChangeListener = onStatusChangeListener;
     }
 
-    public interface OnSearchViewManagerListener{
+    public interface OnTextChangeListener {
         void onTextChangeListener(CharSequence s);
     }
 
