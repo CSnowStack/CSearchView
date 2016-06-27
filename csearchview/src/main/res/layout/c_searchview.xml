@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl"
+    android:paddingLeft="8dp"
+    android:paddingRight="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        tools:visibility="visible"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:id="@+id/iv_search"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_search_36pt_3x"
+        android:layout_width="26dp"
+        android:layout_height="26dp"/>
+
+    <com.cq.csearchview.CEditText
+        android:inputType="textVisiblePassword"
+        tools:visibility="visible"
+        tools:hint="visible"
+        tools:textColorHint="#BDBDBD"
+        android:visibility="invisible"
+        android:layout_toLeftOf="@+id/iv_cancel"
+        android:layout_toRightOf="@+id/iv_search"
+        android:layout_marginLeft="10dp"
+        android:paddingLeft="3dp"
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        />
+    <ImageView
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_cancel"
+        android:src="@drawable/ic_search_36pt_3x"
+        android:layout_width="30dp"
+        android:layout_height="48dp"/>
+</RelativeLayout>
