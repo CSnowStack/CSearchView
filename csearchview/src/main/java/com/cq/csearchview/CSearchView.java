@@ -237,6 +237,10 @@ public class CSearchView extends RelativeLayout {
         edtSearch.setLineColor(color);
     }
 
+    public CharSequence getCharSequence(){
+       return edtSearch.getText();
+    }
+
     private void initView(Context context) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.c_searchview, this, true);
@@ -257,6 +261,7 @@ public class CSearchView extends RelativeLayout {
     public interface OnSearchViewManagerListener{
         void onTextChangeListener(CharSequence s);
     }
+
 
     public interface OnStatusChangeListener{
         void onShowStartListener();
