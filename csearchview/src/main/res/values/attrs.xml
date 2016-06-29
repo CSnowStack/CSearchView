@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="CSearchView">
         <attr name="csv_hint" format="string"/>
+        <attr name="csv_edtSize" format="integer"/>
         <attr name="csv_textColor" format="color"/>
         <attr name="csv_hintColor" format="color"/>
         <attr name="csv_lineColor" format="color"/>

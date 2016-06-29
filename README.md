@@ -7,7 +7,7 @@
 使用
 ```java
 dependencies {
-   compile 'com.cq.csearchview:csearchview:1.0.2'
+   compile 'com.cq.csearchview:csearchview:1.1.1'
 }
 ```
 
